@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<!-- 瀏覽器支援 JavaScript 時不顯示，不支援 JavaScript 時顯示。 -->
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 瀏覽器顯示寬度=裝置寬度 , 縮放比=1 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+
+    <link rel="Shortcut Icon" type="image/x-icon" href="img/logo.png">
+    <!-- world map -->
+    <!-- https://www.amcharts.com/javascript-maps/ -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <style>
+        #world_map {
+            width: auto;
+            height: 550px;
+        }
+    </style>
+
+
+
+    <!-- Google Font -->
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- CSS
+		================================================== -->
+    <!-- Fontawesome Icon font -->
+    <!-- https://fontawesome.com/v4/icons/ -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Twitter Bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- jquery.fancybox  jQuery線上相簿 展示器-->
+    <!-- http://fancybox.net/home -->
+    <link rel="stylesheet" href="css/jquery.fancybox.css">
+    <!-- animate 動畫特效-->
+    <!-- https://animate.style/ -->
+    <!-- https://wowjs.uk/ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- media-queries -->
+    <link rel="stylesheet" href="css/media-queries.css">
+    <!-- flight_ticket -->
+    <link rel="stylesheet" href="css/flight_ticket.css">
+    <!-- Modernizr Script for old Browsers -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- showtk -->
+    <link rel="stylesheet" href="css/showtk.css">
+
+
+</head>
+
+<body id="body">
+
+    <!-- 加載頁 -->
+    <div id="preloader">
+        <img src="img/preloader.gif" alt="Preloader">
+    </div>
+
+
+    <!-- 導覽列 # 透明背景-->
+    <header id="navigation" class="navbar-fixed-top navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- 響應式導覽按鈕 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+
+
+                <!-- logo -->
+                <a class="navbar-brand" href="#body">
+                    <h1 id="logo">
+                        <img src="img/logo.png" alt="">
+                    </h1>
+                </a>
+
+            </div>
+
+            <!-- 導覽索引列 -->
+            <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                <ul id="nav" class="nav navbar-nav">
+                    <li class="current"><a href="#body">Home</a></li>
+                    <li><a href="#features">Service</a></li>
+                    <li><a href="#works">Tour Managrment</a></li>
+                    <li><a href="#team">Flight Tickets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </header>
+
+    <!--封面幻燈片 -->
+
+    <section id="slider">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+            <!-- 照片切換扭 -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+
+            <!-- 封面幻燈片1 -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active" style="background-image: url(img/banner1.jpg);">
+                    <div class="carousel-caption">
+                        <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
+                            Travel<span> Slow</span>!</h2>
+                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated">And<span class="color">
+                                See</span> More</h3>
+                        <p data-wow-duration="1000ms" class="wow slideInRight animated">The Best Travel Agency
+                        </p>
+
+                        <ul class="social-links text-center">
+                            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa fa-facebook fa-lg"></i></a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa fa-instagram fa-lg"></i></a></li>
+                            <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa fa-twitter fa-lg"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- 封面幻燈片2 -->
+                <div class="item" style="background-image: url(img/banner2.jpg);">
+                    <div class="carousel-caption">
+                        <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
+                            Travel<span> Slow</span>!</h2>
+                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated">And<span class="color">
+                                See</span> More</h3>
+                        <p data-wow-duration="1000ms" class="wow slideInRight animated">The Best Travel Agency
+                        </p>
+
+                        <ul class="social-links text-center">
+                            <ul class="social-links text-center">
+                                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-facebook fa-lg"></i></a></li>
+                                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-instagram fa-lg"></i></a></li>
+                                <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                            class="fa fa-twitter fa-lg"></i></a></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- 封面幻燈片3 -->
+                <div class="item active" style="background-image: url(img/banner3.jpg);">
+                    <div class="carousel-caption">
+                        <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">
+                            Travel<span> Slow</span>!</h2>
+                        <h3 data-wow-duration="1000ms" class="wow slideInLeft animated">And<span class="color">
+                                See</span> More</h3>
+                        <p data-wow-duration="1000ms" class="wow slideInRight animated">The Best Travel Agency
+                        </p>
+
+                        <ul class="social-links text-center">
+                            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-facebook fa-lg"></i></a></li>
+                            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-instagram fa-lg"></i></a></li>
+                            <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><i
+                                        class="fa fa-twitter fa-lg"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+    <!-- service -->
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="row">
+
+                <div class="sec-title text-center mb50 wow bounceInDown animated" data-wow-duration="500ms">
+                    <h2>Service</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                <!-- 簽證 -->
+                <div class="col-md-4 wow fadeInLeft" data-wow-duration="500ms">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class=" fa fa-globe fa-2x"></i>
+                        </div>
+
+                        <div class="service-desc">
+                            <h3>簽證</h3>
+                            <p>代辦各國、各類型簽證、協助辦理出國手續。</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 國內外旅遊 -->
+                <div class="col-md-4 wow fadeInUp" data-wow-duration="500ms" data-wow-delay="500ms">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-suitcase fa-2x"></i>
+                        </div>
+
+                        <div class="service-desc">
+                            <h3>國內外旅遊</h3>
+                            <p>國內旅遊:提供國人本島及離島深度團體和精緻小團旅遊商品。
+                                國外旅遊:全球精緻團體旅遊、企業獎勵旅遊、自由行套裝、客製化行程和目的地接待等出境旅遊業務</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 國際機票 -->
+                <div class="col-md-4 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="900ms">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fa fa-plane fa-2x"></i>
+                        </div>
+
+                        <div class="service-desc">
+                            <h3>國際機票</h3>
+                            <p>企業客戶商務出差、個人自由行客製化旅程、提供專人專案旅遊、考察諮詢與規劃。</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 世界地圖 -->
+    <div id="world_map"></div>
+
+    <!--旅遊景點 -->
+    <section id="works" class="works clearfix">
+        <div class="container">
+            <div class="row">
+
+                <div class="sec-title text-center">
+                    <h2>Tour Managrment</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                <div class="sec-sub-title text-center">
+                    <p>The world is a book, not to get enough from travel, but to get rest for the soul.</p>
+                </div>
+
+                <div class="work-filter wow fadeInRight animated" data-wow-duration="500ms">
+                    <ul class="text-center">
+                        <!-- 點選超連結後觸發jacascript -->
+                        <li><a href="javascript:;" data-filter="all" class="active filter">All</a></li>
+                        <li><a href="javascript:;" data-filter=".branding" class="filter">Asia</a></li>
+                        <li><a href="javascript:;" data-filter=".web" class="filter">Europe</a></li>
+                        <li><a href="javascript:;" data-filter=".logo-design" class="filter">America</a></li>
+                        <li><a href="javascript:;" data-filter=".photography" class="filter">Oceania</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="project-wrapper">
+
+            <figure class="mix work-item branding">
+                <img src="img/works/item-1.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="Taiwan" href="../Taiwan/index.html"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>Taiwan</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item web">
+                <img src="img/works/item-2.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="Italy" href="img/works/item-2.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+
+                    <h4>Italy</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item logo-design">
+                <img src="img/works/item-3.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="Canada" href="img/works/item-3.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>Canada</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item photography">
+                <img src="img/works/item-4.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="Australia" href="img/works/item-4.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>Australia</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item branding">
+                <img src="img/works/item-5.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="Japan" href="img/works/item-5.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>Japan</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item web">
+                <img src="img/works/item-6.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="UK" href="img/works/item-6.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>UK</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item logo-design">
+                <img src="img/works/item-7.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="U.S.A" href="img/works/item-7.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>U.S.A</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+            <figure class="mix work-item photography">
+                <img src="img/works/item-8.jpg" alt="">
+                <figcaption class="overlay">
+                    <a class="fancybox" rel="works" title="New Zealand" href="img/works/item-8.jpg"><i
+                            class="fa fa-eye fa-lg"></i></a>
+                    <h4>New Zealand</h4>
+                    <p>See More</p>
+                </figcaption>
+            </figure>
+
+        </div>
+
+    </section>
+    <!-- 機票顯示 -->
+    <dialog id="tk">
+        <div id="e_tk" class="e_tk_area">
+
+            <!-- <button id="close">&times;</button> -->
+        </div>
+    </dialog>
+
+
+    <!--Flight Tickets -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="row">
+
+                <div class="sec-title text-center wow fadeInUp animated" data-wow-duration="700ms">
+                    <h2>Flight Tickets</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                <div class="sec-sub-title text-center wow fadeInRight animated" data-wow-duration="500ms">
+
+
+                </div>
+
+
+                <div class="flight_schedule">
+                    <section id="first-tab-group" class="tabgroup">
+                        <div id="tab1">
+                            <div class="submit-form">
+                                <h4>Check availability for <em>direction</em>:</h4>
+                                <form id="form-submit" action="" method="get">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <label for="from">From:</label>
+                                                <select id="start" value="">
+                                                    <option>Select a location...</option>
+                                                    <optgroup label="Asia">
+                                                        <option value="Taiwan">Taiwan</option>
+                                                        <option value="Japan">Japan</option>
+                                                        <option value="Hong Kong">Hong Kong</option>
+                                                        <option value="Korea">Korea</option>
+                                                        <option value="Thailand">Thailand</option>
+                                                        <option value="Vietnam">Vietnam</option>
+                                                    </optgroup>
+                                                    <optgroup label="Europe">
+                                                        <option value="UK">UK</option>
+                                                        <option value="France">France</option>
+                                                        <option value="Germany">Germany</option>
+                                                        <option value="Spain">Spain</option>
+                                                        <option value="Sweden">Sweden</option>
+                                                        <option value="Iceland">Iceland</option>
+                                                    </optgroup>
+                                                    <optgroup label="America">
+                                                        <option value="USA">USA</option>
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="Mexico">Mexico</option>
+                                                        <option value="Colombia">Colombia</option>
+                                                        <option value="Brazil">Brazil</option>
+                                                        <option value="Argentina">Argentina
+                                                        </option>
+                                                    </optgroup>
+                                                    <optgroup label="Oceania">
+                                                        <option value="Australia">Australia</option>
+                                                        <option value="new_zealand">new zealand</option>
+                                                    </optgroup>
+
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <label for="to">To:</label>
+                                                <select id="end" value="">
+                                                    <!-- required name='to' onchange='this.form()' -->
+                                                    <option>Select a location...</option>
+                                                    <optgroup label="Asia">
+                                                        <option value="Taiwan">Taiwan</option>
+                                                        <option value="Japan">Japan</option>
+                                                        <option value="Hong Kong">Hong Kong</option>
+                                                        <option value="Korea">Korea</option>
+                                                        <option value="Thailand">Thailand</option>
+                                                        <option value="Vietnam">Vietnam</option>
+                                                    </optgroup>
+                                                    <optgroup label="Europe">
+                                                        <option value="UK">UK</option>
+                                                        <option value="France">France</option>
+                                                        <option value="Germany">Germany</option>
+                                                        <option value="Spain">Spain</option>
+                                                        <option value="Sweden">Sweden</option>
+                                                        <option value="Iceland">Iceland</option>
+                                                    </optgroup>
+                                                    <optgroup label="America">
+                                                        <option value="USA">USA</option>
+                                                        <option value="Canada">Canada</option>
+                                                        <option value="Mexico">Mexico</option>
+                                                        <option value="Colombia">Colombia</option>
+                                                        <option value="Brazil">Brazil</option>
+                                                        <option value="Argentina">Argentina
+                                                        </option>
+                                                    </optgroup>
+                                                    <optgroup label="Oceania">
+                                                        <option value="Australia">Australia</option>
+                                                        <option value="new_zealand">new zealand</option>
+                                                    </optgroup>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <label for="departure">Departure date:</label>
+                                                <input name="deparure" type="date" class="form-control date"
+                                                    id="deparure" value="" placeholder="Select date...">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <label for="return">Return date:</label>
+                                                <input name="return" type="date" class="form-control date" id="back"
+                                                    value="" placeholder="Select date...">
+                                            </fieldset>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="radio-select">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                        <label for="round">Round</label>
+                                                        <input type="radio" name="trip" id="round" value="round">
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                        <label for="oneway">Oneway</label>
+                                                        <input type="radio" name="trip" id="oneway" value="one-way">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset>
+                                                <button type="button" id="form_submit1" class="btn">Order Ticket
+                                                    Now</button>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div>
+
+
+
+
+
+
+    <!--回饋-->
+
+    <section id="facts" class="facts">
+        <div class="parallax-overlay">
+            <div class="container">
+                <div class="row number-counters">
+
+                    <div class="sec-title text-center mb50 wow rubberBand animated" data-wow-duration="1000ms">
+                        <h2>Feedback</h2>
+                        <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated"
+                        data-wow-duration="500ms">
+                        <div class="counters-item">
+                            <i class="fa fa-thumbs-up fa-3x"></i>
+                            <strong data-to="3200">0</strong>
+
+                            <p>Like</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms"
+                        data-wow-delay="300ms">
+                        <div class="counters-item">
+                            <i class="fa fa-users fa-3x"></i>
+                            <strong data-to="630">0</strong>
+
+                            <p>Satisfied Clients</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms"
+                        data-wow-delay="600ms">
+                        <div class="counters-item">
+                            <i class="fa fa-map-marker fa-3x"></i>
+                            <strong data-to="36">0</strong>
+
+                            <p>Countries Visited </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12 text-center wow fadeInUp animated" data-wow-duration="500ms"
+                        data-wow-delay="900ms">
+                        <div class="counters-item">
+                            <i class="fa fa-plane fa-3x"></i>
+                            <strong data-to="645">0</strong>
+
+                            <p>Itineraries Planned</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--  Contact Us -->
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="row mb50">
+
+                <div class="sec-title text-center mb50 wow fadeInDown animated" data-wow-duration="500ms">
+                    <h2>CONTACT US</h2>
+                    <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+                </div>
+
+                <div class="sec-sub-title text-center wow rubberBand animated" data-wow-duration="1000ms">
+                    <p>Don't be afraid to reach out. You + Us = Awesome !</p>
+                </div>
+
+
+                <!-- contact form -->
+                <div class="col-lg-8 col-md-8 col-sm-7 col-xs-12 wow fadeInDown animated" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <div class="contact-form">
+                        <h3>Say hello!</h3>
+                        <form action="#" id="contact-form">
+                            <div class="input-group name-email">
+                                <div class="input-field">
+                                    <input type="text" name="name" id="name1" placeholder="Name" class="form-control">
+                                </div>
+
+                            </div>
+                            <div class="input-group">
+                                <textarea name="message" id="message" placeholder="Message"
+                                    class="form-control"></textarea>
+                            </div>
+                            <div class="input-group">
+                                <input type="submit" id="form_submit" class="pull-right" value="Send message">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- contact area -->
+                <div id="list" class="col-lg-3 col-md-3 col-sm-4 col-xs-12 wow fadeInLeft animated"
+                    data-wow-duration="500ms">
+                    <div class="contact-address">
+                        <h3></h3>
+                        <p></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+    <!-- footer -->
+
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms">
+                    <div class="footer-single">
+                        <h6>AWESOME旅行社股份有限公司</h6>
+                        <ul>
+                            <li>代表人：AWESOME</li>
+                            <li>統一編號：99999999</li>
+                            <li>交觀甲字9999號</li>
+                            <li>品保協會中9999號</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                    data-wow-delay="300ms">
+                    <div class="footer-single">
+                        <h6>聯絡地址&電話</h6>
+                        <ul>
+                            <li>408台中市南屯區公益路二段51號18樓</li>
+                            <li>電話: 04-23265860</li>
+                            <li>服務時間：週一 ~ 週五
+                                09:00-18:00</li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 col-xs-12 wow fadeInUp animated" data-wow-duration="500ms"
+                    data-wow-delay="900ms">
+                    <div style="margin-bottom: 15px; position:fixed">
+                        <h6>地圖</h6>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.6042925850193!2d120.6488196142412!3d24.150531079291188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9650422ae1%3A0x334dfd5796c49ff6!2z6LOH562W5pyDLeaVuOS9jeaVmeiCsueglOeptuaJgC3kuK3ljYDoqJPnt7TkuK3lv4M!5e0!3m2!1szh-TW!2stw!4v1657549865898!5m2!1szh-TW!2stw"
+                            width="550" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="copyright text-center">
+
+                    </p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="copyright text-center">
+                                &copy; 2022 AWESOME CULTURE TRAVEL SERVICE CO., LTD ALL RIGHTS RESERVED.
+                            </p>
+
+                        </div>
+                    </div>
+    </footer>
+
+    <a href="javascript:void(0);" id="back-top"><i class="fa fa-angle-up fa-3x"></i></a>
+
+
+
+    <!-- world map -->
+    <script src="js/world_map.js"></script>
+
+    <!-- Main jQuery -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- Single Page Nav -->
+    <script src="js/jquery.singlePageNav.min.js"></script>
+    <!-- Twitter Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jquery.fancybox.pack -->
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <!-- jquery.mixitup.min -->
+    <script src="js/jquery.mixitup.min.js"></script>
+    <!-- jquery.parallax -->
+    <script src="js/jquery.parallax-1.1.3.js"></script>
+    <!-- jquery.countTo -->
+    <script src="js/jquery-countTo.js"></script>
+    <!-- jquery.appear -->
+    <script src="js/jquery.appear.js"></script>
+    <!-- Contact form validation -->
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <!-- jquery easing -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- jquery easing -->
+    <script src="js/wow.min.js"></script>
+    <script>
+        var wow = new WOW({
+            boxClass: 'wow',      // 動畫默認 wow
+            animateClass: 'animated', // 動畫默認 animated
+            offset: 120,          // 處發動畫默認距離 0
+            mobile: false,       // trigger animations on mobile devices (default is true)
+            live: true        // act on asynchronously loaded content (default is true)
+        }
+        );
+        wow.init();
+    </script>
+    <!-- Custom Functions -->
+    <script src="js/custom.js"></script>
+
+    <!-- contact area -->
+    <script src="js/contact_area.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#contact-form').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 2
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    message: {
+                        required: true
+                    }
+                },
+                messages: {
+                    name: {
+                        required: "come on, you have a name don't you?",
+                        minlength: "your name must consist of at least 2 characters"
+                    },
+                    email: {
+                        required: "no email, no message"
+                    },
+                    message: {
+                        required: "um...yea, you have to write something to send this form.",
+                        minlength: "thats all? really?"
+                    }
+                },
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        type: "POST",
+                        data: $(form).serialize(),
+                        url: "process.php",
+                        success: function () {
+                            $('#contact-form :input').attr('disabled', 'disabled');
+                            $('#contact-form').fadeTo("slow", 0.15, function () {
+                                $(this).find(':input').attr('disabled', 'disabled');
+                                $(this).find('label').css('cursor', 'default');
+                                $('#success').fadeIn();
+                            });
+                        },
+                        error: function () {
+                            $('#contact-form').fadeTo("slow", 0.15, function () {
+                                $('#error').fadeIn();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+
+
+
+    <script src="js/showtk.js"></script>
+
+</body>
+
+</html>
